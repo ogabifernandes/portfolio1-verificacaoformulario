@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Validação de Formulário</title>
+
+    <script>
+        function enviarFormulario(event) {
+            event.preventDefault();
+
+            var emailInput = document.getElementById('email');
+            var emailPadrao = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+            if (!emailPadrao.test(emailInput.value)) {
+                alert("Por favor, insira um email que corresponda ao modelo: 'seuemail@exemplo.com'");
+            } else {
+                alert("Formulário enviado");
+            }
+        }
+    </script>
+</head>
+<body>
+    <p>Preencha os campos de formulário corretamente e pressione "Enviar".</p>
+    <hr>
+    <form onsubmit="enviarFormulario(event)">
+        <label for="email">Email:</label>
+        <input type="text" name="email" id="email">
+        <label for="senha">Senha:</label>
+        <input type="text" name="senha" id="senha">
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>
